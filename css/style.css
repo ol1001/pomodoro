@@ -52,7 +52,7 @@ hr {
 .pomodoro-length-control:hover {
   color: #fff;
 }
-.session {
+div.pomodoro-length.session {
   float: right;
 }
 .pomodoro-timer {
@@ -62,4 +62,9 @@ hr {
   border-radius: 50%;
   margin: 2rem auto;
   border: 0.125rem solid #FF7D01;
+}
+#pomodoroTimerProgress {
+  line-height: 14rem;
+  font-size: 6em;
+  color: #D8DAC5;
 }
