@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="pomodoro-wrapper">
+    <h1 class="pomodoro-title">Pomodoro's Clock</h1>
+    <hr/>
+    <div class="pomodoro-length break">
+        <p>break length</p>
+        <button class="pomodoro-length-control" value="-">-</button>
+        <span class="length-value" id="breakValue">5</span>
+        <button class="pomodoro-length-control" value="+">+</button>
+    </div>
+    <div class="pomodoro-length session">
+        <p>session length</p>
+        <button class="pomodoro-length-control" value="-">-</button>
+        <span class="length-value" id="sessionValue">25</span>
+        <button class="pomodoro-length-control" value="+">+</button>
+    </div>
+    <div class="pomodoro-timer">
+        <span id="pomodoroTimerType"></span>
+        <span id="pomodoroTimerProgress"></span>
+    </div>
+    <hr/>
+    <div class="pomodoroSummaryProgress"></div>
+</div>
+</body>
+</html>

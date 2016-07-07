@@ -1,0 +1,87 @@
+@color-orange: #FF4E02;
+@color-orange-light: #FF7D01;
+@color-yellow: #F3D711;
+@color-grey: #333333;
+@color-grey-light: #D8DAC5;
+@color-green: #CCDC00;
+
+@font-face {
+  font-family: Lobster;
+  src: url(./fonts/Lobster_1.3.otf);
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(./fonts/OpenSans-Regular.ttf);
+}
+body {
+  background-color: @color-grey;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid @color-orange-light;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.pomodoro-wrapper {
+  width: 320/16rem;
+  height: 540/16rem;
+  margin: 10% auto;
+  padding: 8/16rem;
+  border: 2/16rem solid @color-orange-light;
+  border-radius: 2rem;
+  outline: @color-orange solid 1/16rem;
+  outline-offset: 8/16rem;
+  text-align: center;
+  color: @color-orange-light;
+  font-family: OpenSans;
+}
+
+.pomodoro-title {
+  font-size: 2.5em;
+  font-family: Lobster;
+  margin: 10px 0;
+}
+
+.pomodoro-length {
+  float: left;
+  text-transform: uppercase;
+  width: 9.5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+.pomodoro-length-control {
+  background: none;
+  border: none;
+  color: @color-grey-light;
+  font: 1.2em OpenSans;
+  cursor: pointer;
+}
+.pomodoro-length-control:hover {
+  color: #fff;
+}
+.session {
+  float: right;
+}
+
+.pomodoro-timer {
+  clear: both;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  margin: 2rem auto;
+  border: 2/16rem solid @color-orange-light;
+}
+
+
+
+
+
+
+
+
+
+

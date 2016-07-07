@@ -1,0 +1,29 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pomodoro.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "babel js/src --out-file js/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ol1001/pomodoro.git"
+  },
+  "keywords": [
+    "TDD",
+    "pomodoro"
+  ],
+  "author": "ol1001",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ol1001/pomodoro/issues"
+  },
+  "homepage": "https://github.com/ol1001/pomodoro#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1"
+  }
+}
