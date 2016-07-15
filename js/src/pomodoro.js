@@ -1,64 +1,75 @@
-$(document).ready(function () {
-    var pomodoroTimerProgress = $('#pomodoroTimerProgress'),
-        pomodoroTimer = $('.pomodoro-timer'),
-        control = $('.pomodoro-length-control'),
-        breakValue = $('#breakValue').text(),
-        sessionValue = $('#sessionValue').text();
+const TIMER_INIT_STATE = "INIT";
+const TIMER_RUN_STATE = "RUN";
+const TIMER_PAUSE_STATE = "PAUSE";
 
-    control.click(function () {
-        var currentItem = $(this).hasClass('session') ? '#sessionValue' : '#breakValue',
-            currentOperation = $(this).val(),
-            currentValue = $(currentItem).text();
+var timer = {
+    timerID: 0,
+    timerState: TIMER_INIT_STATE,
+    currentTimer: "session",
+    currentSessionTime: 25,
+    currentBreakTime: 5,
 
-        if (currentOperation == "-" && currentValue >= 2) {
-            $(currentItem).text(--currentValue);
-        } else if (currentOperation == "+") {
-            $(currentItem).text(++currentValue);
-        }
-    });
+    run: function (timerConfig, timerType, showTimer) {
+        this.timerState = TIMER_RUN_STATE;
 
-    pomodoroTimer.click(function () {
-        var timerState = pomodoro.timerState,
-            timerValue = $('#pomodoroTimerProgress').text();
+        var t = this;
+        t.currentBreakTime = timerConfig.break;
+        t.currentSessionTime = timerConfig.session;
+        t.currentTimer = timerType;
 
-        if (timerState == 1) {
-            pomodoro.stop();
-        } else if (timerState == 0) {
-            pomodoro.start(timerValue, breakValue, showProgress);
-        }
+        var currentTime = (timerType == "session") ? t.currentSessionTime : t.currentBreakTime;
 
-    });
+        t.timerID = setInterval(function () {
+            currentTime--;
 
+            if (t.currentTimer == "session") {
+                t.currentSessionTime = currentTime;
+            } else if (t.currentTimer == "break") {
+                t.currentBreakTime = currentTime;
+            }
 
-    pomodoro.timerId = pomodoro.start(sessionValue, breakValue, showProgress);
+            showTimer(currentTime, t.currentTimer);
 
-    function showProgress(sessionTime) {
-        pomodoroTimerProgress.text(sessionTime);
-    }
+            if (currentTime == 0) {
+                clearInterval(t.timerID);
+                t.run(timerConfig, (t.currentTimer == "session") ? "break" : "session", showTimer);
+            }
 
-});
-
-var pomodoro = {
-    timerId: 0,
-    timerState: 0,
-    start: function (sessionTime, breakTime, callback) {
-        var timerId = setInterval(function () {
-            callback(sessionTime--);
         }, 1000);
 
-        setTimeout(function () {
-            clearInterval(timerId);
-            console.log("stop");
-        }, sessionTime * 1000);
-
-        this.timerState = 1;
-        return timerId;
     },
-    stop: function () {
-        clearInterval(this.timerId);
-        this.timerState = 0;
-    },
-    reset: function () {
 
+
+    pause: function () {
+        this.timerState = TIMER_PAUSE_STATE;
+        clearInterval(this.timerID);
+    },
+
+    restart: function (sessionTime,breakTime) {
+
+    },
+
+    turn: function (timerConfig, showTimer) {
+        switch (this.timerState) {
+            case TIMER_INIT_STATE:
+                this.run(timerConfig, timer.currentTimer, showTimer);
+                break;
+            case TIMER_RUN_STATE:
+                this.pause();
+                break;
+            case TIMER_PAUSE_STATE:
+                this.run({
+                    session: this.currentSessionTime,
+                    break: this.currentBreakTime
+                }, timer.currentTimer, showTimer);
+                break;
+            default:
+                alert("Timer ERROR");
+        }
     }
 };
+
+
+
+
+
