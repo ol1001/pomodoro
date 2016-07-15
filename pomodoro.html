@@ -4,26 +4,28 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="./js/lib/jquery-2.2.4.min.js"></script>
+    <script src="./js/bundle.js"></script>
 </head>
 <body>
 <div class="pomodoro-wrapper">
     <h1 class="pomodoro-title">Pomodoro's Clock</h1>
     <hr/>
-    <div class="pomodoro-length break">
-        <p>break length</p>
-        <button class="pomodoro-length-control" value="-">-</button>
-        <span class="length-value" id="breakValue">5</span>
-        <button class="pomodoro-length-control" value="+">+</button>
-    </div>
     <div class="pomodoro-length session">
         <p>session length</p>
-        <button class="pomodoro-length-control" value="-">-</button>
+        <button class="pomodoro-length-control session" value="-">-</button>
         <span class="length-value" id="sessionValue">25</span>
-        <button class="pomodoro-length-control" value="+">+</button>
+        <button class="pomodoro-length-control session" value="+">+</button>
+    </div>
+    <div class="pomodoro-length break">
+        <p>break length</p>
+        <button class="pomodoro-length-control break" value="-">-</button>
+        <span class="length-value" id="breakValue">5</span>
+        <button class="pomodoro-length-control break" value="+">+</button>
     </div>
     <div class="pomodoro-timer">
-        <span id="pomodoroTimerType"></span>
-        <span id="pomodoroTimerProgress"></span>
+        <p id="pomodoroTimerType"></p>
+        <p id="pomodoroTimerProgress"></p>
     </div>
     <hr/>
     <div class="pomodoroSummaryProgress"></div>
