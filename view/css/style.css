@@ -1,10 +1,10 @@
 @font-face {
   font-family: Lobster;
-  src: url(fonts/Lobster_1.3.otf);
+  src: url(../fonts/Lobster_1.3.otf);
 }
 @font-face {
   font-family: OpenSans;
-  src: url(fonts/OpenSans-Regular.ttf);
+  src: url(../fonts/OpenSans-Regular.ttf);
 }
 body {
   background-color: #333333;
