@@ -2,15 +2,16 @@ $(document).ready(function () {
     var pomodoroTimer = $('.pomodoro-timer'),
         pomodoroControl = $('.pomodoro-length-control'),
         pomodoroTimerType = $('#pomodoroTimerType'),
-        pomodoroTimerProgress = $('#pomodoroTimerProgress');
+        pomodoroTimerProgress = $('#pomodoroTimerProgress'),
+        pomodoroResetTimer = $('.pomodoroResetTimer');
 
-    var pomodoro = new Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomodoroControl);
+    var pomodoro = new Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomodoroControl, pomodoroResetTimer);
 
     pomodoroTimerType.text(timer.currentTimer);
     pomodoroTimerProgress.text(timer.currentSessionTime + ":00");
 });
 
-function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomodoroControl) {
+function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomodoroControl, pomodoroResetTimer) {
 
     pomodoroTimer.click(function () {
         var breakValue = $('#breakValue').text(),
@@ -41,6 +42,15 @@ function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomod
             audioElement.setAttribute('src', path);
             audioElement.play();
         }
+    });
+
+    pomodoroResetTimer.click(function () {
+        timer.pause();
+        timer.currentBreakTime = 5 * 60;
+        timer.currentSessionTime = 25 * 60;
+        timer.currentTimer = "session";
+        timer.timerState = TIMER_INIT_STATE;
+        pomodoroTimerProgress.text("25:00");
     });
 
     pomodoroControl.click(function () {
