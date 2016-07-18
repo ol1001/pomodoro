@@ -37,10 +37,30 @@ function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomod
         if (timer.timerState == TIMER_INIT_STATE) {
             if (currentOperation == "-" && currentValue >= 2) {
                 $(currentItem).text(--currentValue);
-                console.log(currentItem);
             } else if (currentOperation == "+") {
                 $(currentItem).text(++currentValue);
-                console.log(currentItem);
+            }
+            if (currentItem == "#sessionValue") {
+                pomodoroTimerProgress.text(currentValue + ":00");
+            }
+        } else if (timer.timerState == TIMER_PAUSE_STATE) {
+            if (currentOperation == "-" && currentValue >= 2) {
+                --currentValue;
+                $(currentItem).text(currentValue);
+            } else if (currentOperation == "+") {
+                ++currentValue;
+                $(currentItem).text(currentValue);
+            }
+            if (currentItem == "#sessionValue" && timer.currentTimer == "session") {
+                timer.currentSessionTime = currentValue * 60;
+                pomodoroTimerProgress.text(currentValue + ":00");
+            } else if (currentItem == "#sessionValue" && timer.currentTimer == "break") {
+                timer.currentSessionTime = currentValue * 60;
+            } else if (currentItem == "#breakValue" && timer.currentTimer == "break") {
+                timer.currentBreakTime = currentValue * 60;
+                pomodoroTimerProgress.text(currentValue + ":00");
+            } else if (currentItem == "#breakValue" && timer.currentTimer == "session") {
+                timer.currentBreakTime = currentValue * 60;
             }
         }
     });
