@@ -20,13 +20,27 @@ function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomod
             break: breakValue * 60
         };
 
-        timer.turn(timerConfig, function (currentTime, timerType) {
+        timer.turn(timerConfig, showTimer);
+
+        function showTimer(currentTime, timerType) {
             var min = Math.floor(currentTime / 60),
                 sec = currentTime % 60;
 
             pomodoroTimerType.text(timerType);
             pomodoroTimerProgress.text(min + ":" + sec);
-        });
+
+            if (currentTime == 0) {
+                playSound();
+            }
+        }
+
+        function playSound() {
+            var path = "http://www.w3schools.com/html/horse.mp3";
+
+            var audioElement = document.createElement('audio');
+            audioElement.setAttribute('src', path);
+            audioElement.play();
+        }
     });
 
     pomodoroControl.click(function () {
