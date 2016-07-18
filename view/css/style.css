@@ -71,3 +71,17 @@ div.pomodoro-length.session {
 #pomodoroTimerType {
   color: #FF4E02;
 }
+button.pomodoroResetTimer {
+  width: 5.5rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #FF4E02;
+  text-transform: uppercase;
+  background-color: #2e2e2e;
+  color: #FF7D01;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+button.pomodoroResetTimer:hover {
+  background-color: #333333;
+}
