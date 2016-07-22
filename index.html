@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="./view/css/style.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="./js/bundle.js"></script>
+</head>
+<body>
+<div class="pomodoro-wrapper">
+    <h1 class="pomodoro-title">Pomodoro's Clock</h1>
+    <hr/>
+    <div class="pomodoro-length session">
+        <p>session length</p>
+        <button class="pomodoro-length-control session" value="-">-</button>
+        <span class="length-value" id="sessionValue">25</span>
+        <button class="pomodoro-length-control session" value="+">+</button>
+    </div>
+    <div class="pomodoro-length break">
+        <p>break length</p>
+        <button class="pomodoro-length-control break" value="-">-</button>
+        <span class="length-value" id="breakValue">5</span>
+        <button class="pomodoro-length-control break" value="+">+</button>
+    </div>
+    <div class="pomodoro-timer">
+        <p id="pomodoroTimerType"></p>
+        <p id="pomodoroTimerProgress"></p>
+    </div>
+    <hr/>
+    <button class="pomodoroResetTimer">Reset</button>
+</div>
+</body>
+</html>

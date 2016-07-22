@@ -1,0 +1,87 @@
+@font-face {
+  font-family: Lobster;
+  src: url(../fonts/Lobster_1.3.otf);
+}
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/OpenSans-Regular.ttf);
+}
+body {
+  background-color: #333333;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #FF7D01;
+  margin: 1em 0;
+  padding: 0;
+}
+.pomodoro-wrapper {
+  width: 20rem;
+  height: 33.75rem;
+  margin: 10% auto;
+  padding: 0.5rem;
+  border: 0.125rem solid #FF7D01;
+  border-radius: 2rem;
+  outline: #FF4E02 solid 0.0625rem;
+  outline-offset: 0.5rem;
+  text-align: center;
+  color: #FF7D01;
+  font-family: OpenSans;
+}
+.pomodoro-title {
+  font-size: 2.5em;
+  font-family: Lobster;
+  margin: 10px 0;
+}
+.pomodoro-length {
+  float: left;
+  text-transform: uppercase;
+  width: 9.5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+.pomodoro-length-control {
+  background: none;
+  border: none;
+  color: #D8DAC5;
+  font: 1.2em OpenSans;
+  cursor: pointer;
+}
+.pomodoro-length-control:hover {
+  color: #fff;
+}
+div.pomodoro-length.session {
+  float: right;
+}
+.pomodoro-timer {
+  clear: both;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  margin: 2rem auto;
+  border: 0.125rem solid #FF7D01;
+  cursor: pointer;
+}
+#pomodoroTimerProgress {
+  font-size: 2.5em;
+  color: #D8DAC5;
+}
+#pomodoroTimerType {
+  color: #FF4E02;
+}
+button.pomodoroResetTimer {
+  width: 5.5rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #FF4E02;
+  text-transform: uppercase;
+  background-color: #2e2e2e;
+  color: #FF7D01;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+button.pomodoroResetTimer:hover {
+  background-color: #333333;
+}
