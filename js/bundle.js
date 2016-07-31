@@ -45,11 +45,16 @@ function Pomodoro(pomodoroTimer, pomodoroTimerType, pomodoroTimerProgress, pomod
     });
 
     pomodoroResetTimer.click(function () {
+        var pomodoroSessionValue = $('#sessionValue'),
+            pomodoroBreakValue = $('#breakValue');
+
         timer.pause();
         timer.currentBreakTime = 5 * 60;
         timer.currentSessionTime = 25 * 60;
         timer.currentTimer = "session";
         timer.timerState = TIMER_INIT_STATE;
+        pomodoroSessionValue.text("25");
+        pomodoroBreakValue.text("5");
         pomodoroTimerProgress.text("25:00");
     });
 
@@ -132,8 +137,6 @@ var timer = {
         this.timerState = TIMER_PAUSE_STATE;
         clearInterval(this.timerID);
     },
-
-    restart: function (sessionTime, breakTime) {},
 
     turn: function (timerConfig, showTimer) {
         switch (this.timerState) {
